@@ -39,4 +39,9 @@ def filter_records(records, rule):
 records = [
     {"name": "Alice", "age": 20, "score": 55},
     {"name": "Bob", "age": 17, "score": 60},
-    {"name": "Charlie"
+    {"name": "Charlie", "age": 25, "score": 45}
+]
+
+rule = "age>18 and score>=50"
+result = filter_records(records, rule)
+print(result)
