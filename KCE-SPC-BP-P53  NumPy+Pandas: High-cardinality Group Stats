@@ -1,0 +1,13 @@
+import numpy as np, pandas as pd
+
+def groupby_stats(keys, vals):
+    u, inv = np.unique(keys, return_inverse=True)
+    c = np.bincount(inv)
+    s = np.bincount(inv, weights=vals)
+    m = s / c
+    return pd.DataFrame({"count":c,"sum":s,"mean":m}, index=u)
+
+# Example
+keys = ["a","b","a","c","b","a"]
+vals = [10,20,30,40,50,60]
+print(groupby_stats(keys, vals))
